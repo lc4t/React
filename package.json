@@ -1,0 +1,30 @@
+{
+  "name": "react_web",
+  "version": "1.0.0",
+  "description": "react test",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lc4t/React.git"
+  },
+  "author": "lc4t",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lc4t/React/issues"
+  },
+  "homepage": "https://github.com/lc4t/React#readme",
+  "dependencies": {
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2"
+  },
+  "devDependencies": {
+    "react-hot-loader": "^1.3.0",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
