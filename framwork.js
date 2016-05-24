@@ -1,12 +1,57 @@
+function checkEmail(value)
+{
+  var reg = /^[a-zA-Z0-9_\\-\\.]+@[a-zA-Z0-9_\\-\\.]+\.[a-zA-Z0-9]+$/;
+  if (value.match(reg) !== null)
+  {
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
+}
+
+function StateCheckClassName(state)
+{
+  if (state === 2)
+  {
+    return 'am-form-group am-form-icon am-form-feedback am-form-warning';
+  }
+  else if (state === 1)
+  {
+    return 'am-form-group am-form-icon am-form-feedback am-form-success';
+  }
+  else
+  {
+    return 'am-form-group am-form-icon am-form-feedback am-form-error';
+  }
+}
+
+function StateCheckInputIconClass(state)
+{
+  if (state === 2)
+  {
+    return 'am-icon-warning';
+  }
+  else if (state === 1)
+  {
+    return 'am-icon-check';
+  }
+  else
+  {
+    return 'am-icon-times';
+  }
+}
+
 var Form = React.createClass ({
   render: function() {
     return (
-      <form id="login-form" className="am-form am-form-horizontal am-g" >
+      <form id="Regist-form" className="am-form am-form-horizontal am-g" >
         <fieldset>
-          <Legend name="Login" />
+          <Legend name="Regist" />
           <EmailDiv />
           <PasswordDiv />
-          <LoginButton />
+          <RegistButton />
         </fieldset>
       </form>
     )
@@ -17,7 +62,7 @@ var Form = React.createClass ({
 //   render: function() {
 //     return (
 //       <ol class="am-breadcrumb am-breadcrumb-slash am-text-lg">
-//         <li class="am-active"><a href="#">Login</a></li>
+//         <li class="am-active"><a href="#">Regist</a></li>
 //         <li><a href="#">分类</a></li>
 //         <li><a href="#">内容</a></li>
 //       </ol>
@@ -36,21 +81,6 @@ var Legend = React.createClass({
   }
 });
 
-function checkEmail(value)
-{
-  var reg = /^[a-zA-Z0-9_\\-\\.]+@[a-zA-Z0-9_\\-\\.]+\.[a-zA-Z0-9]+$/;
-  // var reg = '/^([a-zA-Z0-9_\\-\\.])+@([a-zA-Z0-9_\\-])+((\\.[a-zA-Z0-9_\\-]{2,3}){1,2})$/';
-  console.log(value.match(reg));
-
-  if (value.match(reg) != null)
-  {
-    return 1;
-  }
-  else
-  {
-    return 0;
-  }
-}
 
 var EmailInput = React.createClass ({
   getInitialState: function(){
@@ -80,25 +110,6 @@ var EmailInput = React.createClass ({
   }
 });
 
-
-
-function StateCheckClassName(state)
-{
-  if (state === 2)
-  {
-    return 'am-form-group am-form-icon am-form-feedback am-form-warning';
-  }
-  else if (state === 1)
-  {
-    return 'am-form-group am-form-icon am-form-feedback am-form-success';
-  }
-  else
-  {
-    return 'am-form-group am-form-icon am-form-feedback am-form-error';
-  }
-};
-
-
 var EmailDiv = React.createClass({
   getInitialState: function() {
     return {
@@ -119,13 +130,15 @@ var EmailDiv = React.createClass({
           <EmailInput
           initValied={this.state.valied}
           callbackParent={this.onChildChanged} />
-          {this.state.valied===1 ? <span id="email-check-icon" className="am-icon-check"></span> : ''}
+          <span id="email-check-icon" className={StateCheckInputIconClass(this.state.valied)}></span>
 
         </div>
       </div>
     );
   }
 });
+
+
 
 var PasswordDiv = React.createClass({
   render: function() {
@@ -142,12 +155,12 @@ var PasswordDiv = React.createClass({
 });
 
 
-var LoginButton = React.createClass({
+var RegistButton = React.createClass({
   render: function() {
     return (
       <div id="submit-div" className="am-form-group">
         <div className="am-u-sm-10 am-u-sm-offset-4">
-          <button type="submit" className="am-btn am-btn-default">Login</button>
+          <button type="submit" className="am-btn am-btn-default">Regist</button>
         </div>
       </div>
     );
