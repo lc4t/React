@@ -30,9 +30,17 @@ var dependencies = [
 gulp.task('vendor', function() {
   return gulp.src([
     'bower_components/jquery/dist/jquery.js',
-    'bower_components/bootstrap/dist/js/bootstrap.js',
-    'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
-    'bower_components/toastr/toastr.js'
+    'bower_components/jquery/dist/jquery.min.js',
+    // 'bower_components/bootstrap/dist/js/bootstrap.js',
+    // 'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
+    // 'bower_components/toastr/toastr.js',
+    'bower_components/amazeui/dist/js/amazeui.js',
+    'bower_components/amazeui/dist/js/amazeui.min.js',
+    'bower_components/amazeui/dist/js/amazeui.ie8polyfill.js',
+    'bower_components/amazeui/dist/js/amazeui.ie8polyfill.min.js',
+    'bower_components/amazeui/dist/js/amazeui.widgets.helper.js',
+    'bower_components/amazeui/dist/js/amazeui.widgets.helper.min.js'
+
   ]).pipe(concat('vendor.js'))
     .pipe(gulpif(production, uglify({ mangle: false })))
     .pipe(gulp.dest('public/js'));
@@ -99,7 +107,8 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
  |--------------------------------------------------------------------------
  */
 gulp.task('styles', function() {
-  return gulp.src('app/stylesheets/main.less')
+  // return gulp.src('app/stylesheets/main.less')
+  return gulp.src('bower_components/amazeui/less/amazeui.less')
     .pipe(plumber())
     .pipe(less())
     .pipe(autoprefixer())
