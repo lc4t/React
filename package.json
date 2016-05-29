@@ -1,10 +1,10 @@
 {
-  "name": "newedenfaces",
-  "description": "Character voting app for EVE Online",
+  "name": "express-react",
+  "description": "website",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sahat/newedenfaces-react"
+    "url": "https://github.com/lc4t/React"
   },
   "main": "server.js",
   "scripts": {
