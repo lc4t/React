@@ -33,11 +33,7 @@ var App = (function (_React$Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      return _react2['default'].createElement(
-        'div',
-        null,
-        _react2['default'].createElement(_reactRouter.RouteHandler, null)
-      );
+      return _react2['default'].createElement(_reactRouter.RouteHandler, null);
     }
   }]);
 
@@ -59,6 +55,59 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+// import {Link} from 'react-router'
+var Navbar = _react2['default'].createClass({
+  displayName: 'Navbar',
+
+  getInitialState: function getInitialState() {
+    return {
+      onlineUsers: 0
+    };
+  },
+  componentDidMount: function componentDidMount() {
+    var _this = this;
+
+    var socket = io.connect();
+    socket.on('onlineUsers', function (data) {
+      _this.setState({
+        onlineUsers: data.onlineUsers
+      });
+    });
+  },
+  render: function render() {
+    return _react2['default'].createElement(
+      'div',
+      null,
+      'ONLINE:',
+      _react2['default'].createElement(
+        'span',
+        { className: 'am-badge am-badge-danger am-radius' },
+        this.state.onlineUsers
+      )
+    );
+  }
+});
+
+exports['default'] = Navbar;
+module.exports = exports['default'];
+
+},{"react":"react"}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Navbar = require('./Navbar');
+
+var _Navbar2 = _interopRequireDefault(_Navbar);
 
 function checkEmail(value) {
   var reg = new RegExp(/^[a-zA-Z0-9_\\-\\.]+@[a-zA-Z0-9_\\-\\.]+\.[a-zA-Z0-9]+$/);
@@ -229,18 +278,23 @@ var RegistButton = _react2['default'].createClass({
   }
 });
 
-var Home = _react2['default'].createClass({
-  displayName: 'Home',
+var Regist = _react2['default'].createClass({
+  displayName: 'Regist',
 
   render: function render() {
-    return _react2['default'].createElement(Form, null);
+    return _react2['default'].createElement(
+      'div',
+      null,
+      _react2['default'].createElement(_Navbar2['default'], null),
+      _react2['default'].createElement(Form, null)
+    );
   }
 });
 
-exports['default'] = Home;
+exports['default'] = Regist;
 module.exports = exports['default'];
 
-},{"react":"react"}],3:[function(require,module,exports){
+},{"./Navbar":2,"react":"react"}],4:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -261,7 +315,7 @@ _reactRouter2['default'].run(_routes2['default'], _reactRouter2['default'].Histo
   _react2['default'].render(_react2['default'].createElement(Handler, null), document.getElementById('app'));
 });
 
-},{"./routes":4,"react":"react","react-router":"react-router"}],4:[function(require,module,exports){
+},{"./routes":5,"react":"react","react-router":"react-router"}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -280,15 +334,16 @@ var _componentsApp = require('./components/App');
 
 var _componentsApp2 = _interopRequireDefault(_componentsApp);
 
-var _componentsHome = require('./components/Home');
+var _componentsRegist = require('./components/Regist');
 
-var _componentsHome2 = _interopRequireDefault(_componentsHome);
+var _componentsRegist2 = _interopRequireDefault(_componentsRegist);
 
 exports['default'] = _react2['default'].createElement(
   _reactRouter.Route,
   { handler: _componentsApp2['default'] },
-  _react2['default'].createElement(_reactRouter.Route, { path: '/', handler: _componentsHome2['default'] })
+  _react2['default'].createElement(_reactRouter.Route, { path: '/', handler: _componentsRegist2['default'] }),
+  _react2['default'].createElement(_reactRouter.Route, { path: '/regist', handler: _componentsRegist2['default'] })
 );
 module.exports = exports['default'];
 
-},{"./components/App":1,"./components/Home":2,"react":"react","react-router":"react-router"}]},{},[3]);
+},{"./components/App":1,"./components/Regist":3,"react":"react","react-router":"react-router"}]},{},[4]);

@@ -31,9 +31,9 @@ gulp.task('vendor', function() {
   return gulp.src([
     'bower_components/jquery/dist/jquery.js',
     'bower_components/jquery/dist/jquery.min.js',
-    // 'bower_components/bootstrap/dist/js/bootstrap.js',
-    // 'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
-    // 'bower_components/toastr/toastr.js',
+    'bower_components/bootstrap/dist/js/bootstrap.js',
+    'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
+    'bower_components/toastr/toastr.js',
     'bower_components/amazeui/dist/js/amazeui.js',
     'bower_components/amazeui/dist/js/amazeui.min.js',
     'bower_components/amazeui/dist/js/amazeui.ie8polyfill.js',
@@ -106,7 +106,7 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
  | Compile LESS stylesheets.
  |--------------------------------------------------------------------------
  */
-gulp.task('styles', function() {
+gulp.task('stylesAmazeui', function() {
   // return gulp.src('app/stylesheets/main.less')
   return gulp.src('bower_components/amazeui/less/amazeui.less')
     .pipe(plumber())
@@ -116,9 +116,19 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('watch', function() {
-  gulp.watch('app/stylesheets/**/*.less', ['styles']);
+gulp.task('stylesBootstrap', function() {
+  // return gulp.src('app/stylesheets/main.less')
+  return gulp.src('bower_components/bootstrap/less/bootstrap.less')
+    .pipe(plumber())
+    .pipe(less())
+    .pipe(autoprefixer())
+    .pipe(gulpif(production, cssmin()))
+    .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch']);
-gulp.task('build', ['styles', 'vendor', 'browserify']);
+// gulp.task('watch', function() {
+//   gulp.watch('app/stylesheets/**/*.less', ['stylesAmazeui']);
+// });
+
+gulp.task('default', ['stylesAmazeui', 'stylesBootstrap', 'vendor', 'browserify-watch']);
+gulp.task('build', ['stylesAmazeui', 'stylesBootstrap', 'vendor', 'browserify']);

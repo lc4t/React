@@ -1,13 +1,15 @@
+import React from 'react';
+import Navbar from './Navbar';
 function checkEmail(value)
 {
-  var reg = /^[a-zA-Z0-9_\\-\\.]+@[a-zA-Z0-9_\\-\\.]+\.[a-zA-Z0-9]+$/;
-  if (value.match(reg) !== null)
+  var reg = new RegExp(/^[a-zA-Z0-9_\\-\\.]+@[a-zA-Z0-9_\\-\\.]+\.[a-zA-Z0-9]+$/);
+  if (reg.exec(value) === null)
   {
-    return 1;
+    return 0;
   }
   else
   {
-    return 0;
+    return 1;
   }
 }
 
@@ -58,17 +60,6 @@ var Form = React.createClass ({
   }
 });
 
-// var Navbar = React.createClass ({
-//   render: function() {
-//     return (
-//       <ol class="am-breadcrumb am-breadcrumb-slash am-text-lg">
-//         <li class="am-active"><a href="#">Regist</a></li>
-//         <li><a href="#">分类</a></li>
-//         <li><a href="#">内容</a></li>
-//       </ol>
-//     )
-//   }
-// })
 
 
 var Legend = React.createClass({
@@ -88,16 +79,16 @@ var EmailInput = React.createClass ({
       valied: this.props.initValied
     }
   },
-  onFocus: function() {
-    var check = checkEmail(this.refs.emailInput.value);
+  onFocus: function(e) {
+    var check = checkEmail(e.target.value);
 
     this.setState({
       valied: check
     });
     this.props.callbackParent(check);
   },
-  onChange: function() {
-    var check = checkEmail(this.refs.emailInput.value);
+  onChange: function(e) {
+    var check = checkEmail(e.target.value);
     this.setState({
       valied: check
     });
@@ -168,7 +159,16 @@ var RegistButton = React.createClass({
 });
 
 
-ReactDOM.render(
-  <Form />,
-  document.body
-);
+var Regist = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <Navbar />
+        <Form />
+      </div>
+    );
+  }
+});
+
+
+export default Regist;

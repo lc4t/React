@@ -20,10 +20,11 @@ var routes = require('./app/routes');
 app.use(function(req, res) {
   Router.run(routes, req.path, function(Handler) {
     var html = React.renderToString(React.createElement(Handler));
-    var page = swig.renderFile('views/index.html', { html: html });
+    var page = swig.renderFile('views/index.html', { html: html});
     res.send(page);
   });
 });
+
 
 
 
