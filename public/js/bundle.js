@@ -56,9 +56,233 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-// import {Link} from 'react-router'
-var Navbar = _react2['default'].createClass({
-  displayName: 'Navbar',
+var _Navbar = require('./Navbar');
+
+var _Navbar2 = _interopRequireDefault(_Navbar);
+
+var Index = _react2['default'].createClass({
+  displayName: 'Index',
+
+  render: function render() {
+    return _react2['default'].createElement(
+      'div',
+      null,
+      _react2['default'].createElement(_Navbar2['default'], null),
+      _react2['default'].createElement(
+        'div',
+        null,
+        'This is index page.'
+      )
+    );
+  }
+});
+
+exports['default'] = Index;
+module.exports = exports['default'];
+
+},{"./Navbar":3,"react":"react"}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var Navbar = _react2["default"].createClass({
+  displayName: "Navbar",
+
+  render: function render() {
+    return _react2["default"].createElement(
+      "div",
+      null,
+      _react2["default"].createElement(
+        "header",
+        { className: "am-topbar" },
+        _react2["default"].createElement(
+          "h1",
+          { className: "am-topbar-brand" },
+          _react2["default"].createElement(
+            "a",
+            { href: "/" },
+            "Web Console"
+          )
+        ),
+        _react2["default"].createElement(
+          "button",
+          { className: "am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only", "data-am-collapse": "{target: '#doc-topbar-collapse'}" },
+          _react2["default"].createElement(
+            "span",
+            { className: "am-sr-only" },
+            "导航切换"
+          ),
+          " ",
+          _react2["default"].createElement("span", { className: "am-icon-bars" })
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "am-collapse am-topbar-collapse", id: "doc-topbar-collapse" },
+          _react2["default"].createElement(
+            "ul",
+            { className: "am-nav am-nav-pills am-topbar-nav" },
+            _react2["default"].createElement(
+              "li",
+              { className: "am-active" },
+              _react2["default"].createElement(
+                "a",
+                { href: "#" },
+                "index"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              _react2["default"].createElement(
+                "a",
+                { href: "#" },
+                "Other"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              { className: "am-dropdown", "data-am-dropdown": true },
+              _react2["default"].createElement(
+                "a",
+                { className: "am-dropdown-toggle", "data-am-dropdown-toggle": true, href: "javascript:;" },
+                "things ",
+                _react2["default"].createElement("span", { className: "am-icon-caret-down" })
+              ),
+              _react2["default"].createElement(
+                "ul",
+                { className: "am-dropdown-content" },
+                _react2["default"].createElement(
+                  "li",
+                  { className: "am-dropdown-header" },
+                  "title here"
+                ),
+                _react2["default"].createElement(
+                  "li",
+                  null,
+                  _react2["default"].createElement(
+                    "a",
+                    { href: "#" },
+                    "1"
+                  )
+                ),
+                _react2["default"].createElement(
+                  "li",
+                  { className: "am-active" },
+                  _react2["default"].createElement(
+                    "a",
+                    { href: "#" },
+                    "2"
+                  )
+                ),
+                _react2["default"].createElement(
+                  "li",
+                  null,
+                  _react2["default"].createElement(
+                    "a",
+                    { href: "#" },
+                    "3"
+                  )
+                ),
+                _react2["default"].createElement(
+                  "li",
+                  { className: "am-disabled" },
+                  _react2["default"].createElement(
+                    "a",
+                    { href: "#" },
+                    "4"
+                  )
+                ),
+                _react2["default"].createElement("li", { className: "am-divider" }),
+                _react2["default"].createElement(
+                  "li",
+                  null,
+                  _react2["default"].createElement(
+                    "a",
+                    { href: "#" },
+                    "5"
+                  )
+                )
+              )
+            )
+          ),
+          _react2["default"].createElement(
+            "form",
+            { className: "am-topbar-form am-topbar-left am-form-inline", role: "search" },
+            _react2["default"].createElement(
+              "div",
+              { className: "am-form-group" },
+              _react2["default"].createElement("input", { type: "text", className: "am-form-field am-input-sm", placeholder: "search" })
+            )
+          ),
+          _react2["default"].createElement(
+            "div",
+            { className: "am-topbar-right" },
+            _react2["default"].createElement(
+              "div",
+              { className: "am-dropdown", "data-am-dropdown": "{boundary: '.am-topbar'}" },
+              _react2["default"].createElement(
+                "button",
+                { className: "am-btn am-btn-secondary am-topbar-btn am-btn-sm am-dropdown-toggle", "data-am-dropdown-toggle": true },
+                " Others ",
+                _react2["default"].createElement("span", { className: "am-icon-caret-down" })
+              ),
+              _react2["default"].createElement(
+                "ul",
+                { className: "am-dropdown-content" },
+                _react2["default"].createElement(
+                  "li",
+                  null,
+                  _react2["default"].createElement(
+                    "a",
+                    { href: "#" },
+                    "regist"
+                  )
+                )
+              )
+            )
+          ),
+          _react2["default"].createElement(
+            "div",
+            { className: "am-topbar-right" },
+            _react2["default"].createElement(
+              "button",
+              { className: "am-btn am-btn-primary am-topbar-btn am-btn-sm" },
+              "Login"
+            )
+          )
+        )
+      )
+    );
+  }
+});
+
+exports["default"] = Navbar;
+module.exports = exports["default"];
+/*<li><a href="#">随便看看</a></li>*/
+
+},{"react":"react"}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var OnlineUsers = _react2['default'].createClass({
+  displayName: 'OnlineUsers',
 
   getInitialState: function getInitialState() {
     return {
@@ -77,22 +301,17 @@ var Navbar = _react2['default'].createClass({
   },
   render: function render() {
     return _react2['default'].createElement(
-      'div',
-      null,
-      'ONLINE:',
-      _react2['default'].createElement(
-        'span',
-        { className: 'am-badge am-badge-danger am-radius' },
-        this.state.onlineUsers
-      )
+      'span',
+      { className: 'am-badge am-badge-danger am-radius' },
+      this.state.onlineUsers
     );
   }
 });
 
-exports['default'] = Navbar;
+exports['default'] = OnlineUsers;
 module.exports = exports['default'];
 
-},{"react":"react"}],3:[function(require,module,exports){
+},{"react":"react"}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -105,9 +324,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Navbar = require('./Navbar');
+var _OnlineUsers = require('./OnlineUsers');
 
-var _Navbar2 = _interopRequireDefault(_Navbar);
+var _OnlineUsers2 = _interopRequireDefault(_OnlineUsers);
 
 function checkEmail(value) {
   var reg = new RegExp(/^[a-zA-Z0-9_\\-\\.]+@[a-zA-Z0-9_\\-\\.]+\.[a-zA-Z0-9]+$/);
@@ -285,7 +504,8 @@ var Regist = _react2['default'].createClass({
     return _react2['default'].createElement(
       'div',
       null,
-      _react2['default'].createElement(_Navbar2['default'], null),
+      'online:',
+      _react2['default'].createElement(_OnlineUsers2['default'], null),
       _react2['default'].createElement(Form, null)
     );
   }
@@ -294,7 +514,7 @@ var Regist = _react2['default'].createClass({
 exports['default'] = Regist;
 module.exports = exports['default'];
 
-},{"./Navbar":2,"react":"react"}],4:[function(require,module,exports){
+},{"./OnlineUsers":4,"react":"react"}],6:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -315,7 +535,7 @@ _reactRouter2['default'].run(_routes2['default'], _reactRouter2['default'].Histo
   _react2['default'].render(_react2['default'].createElement(Handler, null), document.getElementById('app'));
 });
 
-},{"./routes":5,"react":"react","react-router":"react-router"}],5:[function(require,module,exports){
+},{"./routes":7,"react":"react","react-router":"react-router"}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -338,12 +558,16 @@ var _componentsRegist = require('./components/Regist');
 
 var _componentsRegist2 = _interopRequireDefault(_componentsRegist);
 
+var _componentsIndex = require('./components/Index');
+
+var _componentsIndex2 = _interopRequireDefault(_componentsIndex);
+
 exports['default'] = _react2['default'].createElement(
   _reactRouter.Route,
   { handler: _componentsApp2['default'] },
-  _react2['default'].createElement(_reactRouter.Route, { path: '/', handler: _componentsRegist2['default'] }),
+  _react2['default'].createElement(_reactRouter.Route, { path: '/', handler: _componentsIndex2['default'] }),
   _react2['default'].createElement(_reactRouter.Route, { path: '/regist', handler: _componentsRegist2['default'] })
 );
 module.exports = exports['default'];
 
-},{"./components/App":1,"./components/Regist":3,"react":"react","react-router":"react-router"}]},{},[4]);
+},{"./components/App":1,"./components/Index":2,"./components/Regist":5,"react":"react","react-router":"react-router"}]},{},[6]);

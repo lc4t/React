@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './Navbar';
+import OnlineUsers from './OnlineUsers';
 function checkEmail(value)
 {
   var reg = new RegExp(/^[a-zA-Z0-9_\\-\\.]+@[a-zA-Z0-9_\\-\\.]+\.[a-zA-Z0-9]+$/);
@@ -163,7 +163,7 @@ var Regist = React.createClass({
   render: function() {
     return (
       <div>
-        <Navbar />
+        online:<OnlineUsers />
         <Form />
       </div>
     );
