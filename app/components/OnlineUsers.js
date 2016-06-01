@@ -15,7 +15,7 @@ var OnlineUsers = React.createClass ({
   },
   render: function() {
     return (
-        <span className='am-badge am-badge-danger am-radius'>{this.state.onlineUsers}</span>
+        <span className='am-badge am-badge-success'>{this.state.onlineUsers}</span>
     );
   }
 });

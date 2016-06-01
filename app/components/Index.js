@@ -5,11 +5,11 @@ var Index = React.createClass({
   render: function() {
     return (
       <div>
-      <Navbar />
-      <div>
-        This is index page.
+        <Navbar />
+        <div>
+          This is index page.
+        </div>
       </div>
-    </div>
     );
   }
 });

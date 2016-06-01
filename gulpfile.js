@@ -106,9 +106,9 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
  | Compile LESS stylesheets.
  |--------------------------------------------------------------------------
  */
-gulp.task('stylesAmazeui', function() {
-  // return gulp.src('app/stylesheets/main.less')
-  return gulp.src('bower_components/amazeui/less/amazeui.less')
+
+gulp.task('styles', function() {
+  return gulp.src('app/stylesheets/main.less')
     .pipe(plumber())
     .pipe(less())
     .pipe(autoprefixer())
@@ -116,19 +116,9 @@ gulp.task('stylesAmazeui', function() {
     .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('stylesBootstrap', function() {
-  // return gulp.src('app/stylesheets/main.less')
-  return gulp.src('bower_components/bootstrap/less/bootstrap.less')
-    .pipe(plumber())
-    .pipe(less())
-    .pipe(autoprefixer())
-    .pipe(gulpif(production, cssmin()))
-    .pipe(gulp.dest('public/css'));
+gulp.task('watch', function() {
+  gulp.watch('app/stylesheets/**/*.less', ['styles']);
 });
 
-// gulp.task('watch', function() {
-//   gulp.watch('app/stylesheets/**/*.less', ['stylesAmazeui']);
-// });
-
-gulp.task('default', ['stylesAmazeui', 'stylesBootstrap', 'vendor', 'browserify-watch']);
-gulp.task('build', ['stylesAmazeui', 'stylesBootstrap', 'vendor', 'browserify']);
+gulp.task('default', ['vendor', 'browserify-watch', 'watch']);
+gulp.task('build', ['vendor', 'browserify', 'watch']);

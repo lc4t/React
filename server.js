@@ -17,6 +17,7 @@ var React = require('react');
 var Router = require('react-router');
 var routes = require('./app/routes');
 
+//react-router
 app.use(function(req, res) {
   Router.run(routes, req.path, function(Handler) {
     var html = React.renderToString(React.createElement(Handler));
@@ -25,6 +26,8 @@ app.use(function(req, res) {
   });
 });
 
+// var favicon = require('serve-favicon');
+// app.use(favicon(__dirname + '/public/favicon.ico'));
 
 
 
