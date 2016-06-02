@@ -44,6 +44,57 @@ exports['default'] = App;
 module.exports = exports['default'];
 
 },{"react":"react","react-router":"react-router"}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var CaptchaImg = _react2["default"].createClass({
+  displayName: "CaptchaImg",
+
+  render: function render() {
+    return _react2["default"].createElement("img", { src: "favicon.ico", alt: "captcha", width: "100%", height: "100%" });
+  }
+});
+
+var CaptchaDiv = _react2["default"].createClass({
+  displayName: "CaptchaDiv",
+
+  render: function render() {
+    return _react2["default"].createElement(
+      "div",
+      { id: "captcha-div", className: "am-form-group am-form-warning am-form-icon am-form-feedback" },
+      _react2["default"].createElement(
+        "label",
+        { htmlFor: "captcha-input", className: "am-u-sm-4 am-form-label" },
+        "captcha:"
+      ),
+      _react2["default"].createElement(
+        "div",
+        { className: "am-u-sm-2 am-u-sm-uncentered" },
+        _react2["default"].createElement("input", { id: "captcha-input", type: "text", className: "am-form-field", placeholder: "captcha" }),
+        _react2["default"].createElement("span", { id: "password-check-icon", className: "am-icon-warning" })
+      ),
+      _react2["default"].createElement(
+        "div",
+        { className: "am-u-sm-2 am-u-sm-uncentered" },
+        _react2["default"].createElement(CaptchaImg, null)
+      )
+    );
+  }
+});
+
+exports["default"] = CaptchaDiv;
+module.exports = exports["default"];
+
+},{"react":"react"}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -151,7 +202,7 @@ var EmailDiv = _react2['default'].createClass({
 exports['default'] = EmailDiv;
 module.exports = exports['default'];
 
-},{"react":"react"}],3:[function(require,module,exports){
+},{"react":"react"}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -188,7 +239,7 @@ var Index = _react2['default'].createClass({
 exports['default'] = Index;
 module.exports = exports['default'];
 
-},{"./Navbar":6,"react":"react"}],4:[function(require,module,exports){
+},{"./Navbar":7,"react":"react"}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -220,7 +271,7 @@ var Legend = _react2['default'].createClass({
 exports['default'] = Legend;
 module.exports = exports['default'];
 
-},{"react":"react"}],5:[function(require,module,exports){
+},{"react":"react"}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -245,6 +296,10 @@ var _EmailDiv = require('./EmailDiv');
 
 var _EmailDiv2 = _interopRequireDefault(_EmailDiv);
 
+var _CaptchaDiv = require('./CaptchaDiv');
+
+var _CaptchaDiv2 = _interopRequireDefault(_CaptchaDiv);
+
 var PasswordDiv = _react2['default'].createClass({
   displayName: 'PasswordDiv',
 
@@ -261,41 +316,6 @@ var PasswordDiv = _react2['default'].createClass({
         'div',
         { className: 'am-u-sm-4  am-u-sm-centered' },
         _react2['default'].createElement('input', { id: 'password-input', type: 'password', className: 'am-form-field', placeholder: '********' })
-      )
-    );
-  }
-});
-
-var CaptchaImg = _react2['default'].createClass({
-  displayName: 'CaptchaImg',
-
-  render: function render() {
-    return _react2['default'].createElement('img', { src: 'favicon.ico', alt: 'captcha', width: '100%', height: '100%' });
-  }
-});
-
-var CaptchaDiv = _react2['default'].createClass({
-  displayName: 'CaptchaDiv',
-
-  render: function render() {
-    return _react2['default'].createElement(
-      'div',
-      { id: 'captcha-div', className: 'am-form-group am-form-warning am-form-icon am-form-feedback' },
-      _react2['default'].createElement(
-        'label',
-        { htmlFor: 'captcha-input', className: 'am-u-sm-4 am-form-label' },
-        'captcha:'
-      ),
-      _react2['default'].createElement(
-        'div',
-        { className: 'am-u-sm-2 am-u-sm-uncentered' },
-        _react2['default'].createElement('input', { id: 'captcha-input', type: 'text', className: 'am-form-field', placeholder: 'captcha' }),
-        _react2['default'].createElement('span', { id: 'password-check-icon', className: 'am-icon-warning' })
-      ),
-      _react2['default'].createElement(
-        'div',
-        { className: 'am-u-sm-2 am-u-sm-uncentered' },
-        _react2['default'].createElement(CaptchaImg, null)
       )
     );
   }
@@ -334,7 +354,7 @@ var LoginForm = _react2['default'].createClass({
         _react2['default'].createElement(_Legend2['default'], { name: 'Login' }),
         _react2['default'].createElement(_EmailDiv2['default'], null),
         _react2['default'].createElement(PasswordDiv, null),
-        _react2['default'].createElement(CaptchaDiv, null),
+        _react2['default'].createElement(_CaptchaDiv2['default'], null),
         _react2['default'].createElement(LoginButton, null)
       )
     );
@@ -356,7 +376,7 @@ var Login = _react2['default'].createClass({
 exports['default'] = Login;
 module.exports = exports['default'];
 
-},{"./EmailDiv":2,"./Legend":4,"./Navbar":6,"react":"react"}],6:[function(require,module,exports){
+},{"./CaptchaDiv":2,"./EmailDiv":3,"./Legend":5,"./Navbar":7,"react":"react"}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -368,6 +388,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _OnlineUsers = require('./OnlineUsers');
+
+var _OnlineUsers2 = _interopRequireDefault(_OnlineUsers);
 
 var _reactRouter = require('react-router');
 
@@ -388,7 +412,8 @@ var Navbar = _react2['default'].createClass({
             _reactRouter.Link,
             { to: '/' },
             'Web Console'
-          )
+          ),
+          _react2['default'].createElement(_OnlineUsers2['default'], null)
         ),
         _react2['default'].createElement(
           'button',
@@ -550,7 +575,7 @@ exports['default'] = Navbar;
 module.exports = exports['default'];
 /*<li><a href="#">随便看看</a></li>*/
 
-},{"react":"react","react-router":"react-router"}],7:[function(require,module,exports){
+},{"./OnlineUsers":8,"react":"react","react-router":"react-router"}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -584,7 +609,7 @@ var OnlineUsers = _react2['default'].createClass({
   render: function render() {
     return _react2['default'].createElement(
       'span',
-      { className: 'am-badge am-badge-success' },
+      { className: 'badge-up am-badge am-badge-success' },
       this.state.onlineUsers
     );
   }
@@ -593,7 +618,231 @@ var OnlineUsers = _react2['default'].createClass({
 exports['default'] = OnlineUsers;
 module.exports = exports['default'];
 
-},{"react":"react"}],8:[function(require,module,exports){
+},{"react":"react"}],9:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function checkPasswordFormat(passwordFirst) {
+  var reg = new RegExp(/^.{12,20}$/);
+  if (reg.exec(passwordFirst) === null) {
+    return [0, "len(password) must in [12,21)"];
+  } else {
+    return [1, ""];
+  }
+};
+function checkPasswordSame(passwordFirst, passwordSecond) {
+  if (passwordFirst === passwordSecond) {
+    return [1, ""];
+  } else {
+    return [0, "Input not same."];
+  }
+}
+
+function StateCheckClassName(state) {
+  if (state === 2) {
+    return 'am-form-group am-form-icon am-form-feedback am-form-warning';
+  } else if (state === 1) {
+    return 'am-form-group am-form-icon am-form-feedback am-form-success';
+  } else {
+    return 'am-form-group am-form-icon am-form-feedback am-form-error';
+  }
+}
+
+function StateCheckInputIconClass(state) {
+  if (state === 2) {
+    return 'am-icon-warning';
+  } else if (state === 1) {
+    return 'am-icon-check';
+  } else {
+    return 'am-icon-times';
+  }
+}
+
+var PasswordInputFirst = _react2["default"].createClass({
+  displayName: "PasswordInputFirst",
+
+  getInitialState: function getInitialState() {
+    return {
+      formatCheckState: this.props.valied,
+      formatCheckString: this.props.formatCheckString
+    };
+  },
+  onFocus: function onFocus(e) {
+    var checkList = checkPasswordFormat(e.target.value);
+
+    this.setState({
+      formatCheckState: checkList[0],
+      formatCheckString: checkList[1]
+    });
+    this.props.formatCallback(checkList);
+    this.props.setPasswordFirst(e.target.value);
+  },
+  onChange: function onChange(e) {
+    var checkList = checkPasswordFormat(e.target.value);
+    this.setState({
+      formatCheckState: checkList[0],
+      formatCheckString: checkList[1]
+    });
+    this.props.formatCallback(checkList);
+    this.props.setPasswordFirst(e.target.value);
+  },
+  render: function render() {
+    return _react2["default"].createElement(
+      "div",
+      { id: "password-first-div", className: StateCheckClassName(this.state.formatCheckState) },
+      _react2["default"].createElement(
+        "label",
+        { htmlFor: "password-first-input", className: "am-u-sm-4 am-form-label" },
+        "password"
+      ),
+      _react2["default"].createElement(
+        "div",
+        { className: "am-u-sm-4  am-u-sm-uncentered" },
+        _react2["default"].createElement("input", { id: "password-first-input", type: "password", className: "am-form-field", placeholder: "********", onFocus: this.onFocus, onChange: this.onChange }),
+        _react2["default"].createElement("span", { id: "password-check-icon", className: StateCheckInputIconClass(this.state.formatCheckState) })
+      ),
+      _react2["default"].createElement(
+        "div",
+        { id: "password-format-check", className: "am-u-sm-4  am-u-sm-uncentered am-text-danger" },
+        this.state.formatCheckString
+      )
+    );
+  }
+});
+
+var PasswordInputAgain = _react2["default"].createClass({
+  displayName: "PasswordInputAgain",
+
+  getInitialState: function getInitialState() {
+    return {
+      sameCheckState: 2,
+      sameCheckString: "passwordSameCheckString",
+      passwordFirst: this.props.passwordFirst
+    };
+  },
+  onFocus: function onFocus(e) {
+    this.props.setPasswordSecond(e.target.value);
+
+    // var checkList = checkPasswordSame(this.state.passwordFirst, e.target.value);
+    // this.props.sameCallback(checkList);
+    // this.setState({
+    //   sameCheckState: checkList[0],
+    //   sameCheckString: checkList[1],
+    //   passwordFirst: this.props.passwordFirst
+    // });
+  },
+  onChange: function onChange(e) {
+    this.props.setPasswordSecond(e.target.value);
+    // console.log('onchange:'+this.state.passwordFirst);
+    // var checkList = checkPasswordSame(this.state.passwordFirst, e.target.value);
+    //
+    // this.setState({
+    //   sameCheckState: checkList[0],
+    //   sameCheckString: checkList[1]
+    // });
+    // this.props.sameCallback(checkList);
+  },
+  sameCheckAgain: function sameCheckAgain(first, second) {
+    var checkList = checkPasswordSame(first, second);
+    console.log(first);
+    console.log(second);
+    this.setState({
+      sameCheckState: checkList[0],
+      sameCheckString: checkList[1]
+    });
+    this.props.sameCallback(checkList);
+  },
+  render: function render() {
+    return _react2["default"].createElement(
+      "div",
+      { id: "password-again-div", className: StateCheckClassName(this.state.sameCheckState) },
+      _react2["default"].createElement(
+        "label",
+        { htmlFor: "password-again-input", className: "am-u-sm-4 am-form-label" },
+        "password"
+      ),
+      _react2["default"].createElement(
+        "div",
+        { className: "am-u-sm-4  am-u-sm-uncentered" },
+        _react2["default"].createElement("input", { id: "password-again-input", type: "password", className: "am-form-field", placeholder: "********", onFocus: this.onFocus, onChange: this.onChange }),
+        _react2["default"].createElement("span", { id: "password-check-icon", className: StateCheckInputIconClass(this.state.sameCheckState) })
+      ),
+      _react2["default"].createElement(
+        "div",
+        { id: "password-again-check", className: "am-u-sm-4  am-u-sm-uncentered am-text-danger" },
+        this.state.sameCheckString
+      )
+    );
+  }
+});
+
+var PasswordCheck = _react2["default"].createClass({
+  displayName: "PasswordCheck",
+
+  getInitialState: function getInitialState() {
+    return {
+      formatCheckState: 2,
+      sameCheckState: 2,
+      formatCheckString: "formatCheckString",
+      sameCheckString: "sameCheckString",
+      passwordFirst: "",
+      passwordSecond: ""
+    };
+  },
+  formatCallback: function formatCallback(checkList) {
+    this.setState({
+      formatCheckState: checkList[0],
+      formatCheckString: checkList[1]
+    });
+  },
+  sameCallback: function sameCallback(checkList) {
+    this.setState({
+      sameCheckState: checkList[0],
+      sameCheckString: checkList[1]
+    });
+  },
+  setPasswordFirst: function setPasswordFirst(password) {
+
+    this.setState({
+      passwordFirst: password
+    }, function () {
+      this.check();
+    });
+  },
+  check: function check() {
+    this.refs.passwordAgainCheck.sameCheckAgain(this.state.passwordFirst, this.state.passwordSecond);
+  },
+  setPasswordSecond: function setPasswordSecond(password) {
+    this.setState({
+      passwordSecond: password
+    }, function () {
+      this.check();
+    });
+  },
+
+  render: function render() {
+    return _react2["default"].createElement(
+      "div",
+      null,
+      _react2["default"].createElement(PasswordInputFirst, { formatCheckState: this.state.formatCheckState, formatCheckString: this.state.formatCheckString, formatCallback: this.formatCallback, setPasswordFirst: this.setPasswordFirst }),
+      _react2["default"].createElement(PasswordInputAgain, { ref: "passwordAgainCheck", sameCheckState: this.state.sameCheckState, sameCheckString: this.state.sameCheckString, sameCallback: this.sameCallback, passwordFirst: this.state.passwordFirst, setPasswordSecond: this.setPasswordSecond })
+    );
+  }
+});
+
+exports["default"] = PasswordCheck;
+module.exports = exports["default"];
+
+},{"react":"react"}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -606,10 +855,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _OnlineUsers = require('./OnlineUsers');
-
-var _OnlineUsers2 = _interopRequireDefault(_OnlineUsers);
-
 var _Legend = require('./Legend');
 
 var _Legend2 = _interopRequireDefault(_Legend);
@@ -618,46 +863,13 @@ var _EmailDiv = require('./EmailDiv');
 
 var _EmailDiv2 = _interopRequireDefault(_EmailDiv);
 
-var Form = _react2['default'].createClass({
-  displayName: 'Form',
+var _CaptchaDiv = require('./CaptchaDiv');
 
-  render: function render() {
-    return _react2['default'].createElement(
-      'form',
-      { id: 'Regist-form', className: 'am-form am-form-horizontal am-g' },
-      _react2['default'].createElement(
-        'fieldset',
-        null,
-        _react2['default'].createElement(_Legend2['default'], { name: 'Regist' }),
-        _react2['default'].createElement(_EmailDiv2['default'], null),
-        _react2['default'].createElement(PasswordDiv, null),
-        _react2['default'].createElement(RegistButton, null)
-      )
-    );
-  }
-});
+var _CaptchaDiv2 = _interopRequireDefault(_CaptchaDiv);
 
-var PasswordDiv = _react2['default'].createClass({
-  displayName: 'PasswordDiv',
+var _PasswordCheck = require('./PasswordCheck');
 
-  render: function render() {
-    return _react2['default'].createElement(
-      'div',
-      { id: 'password-div', className: 'am-form-group am-form-warning am-form-icon am-form-feedback' },
-      _react2['default'].createElement(
-        'label',
-        { htmlFor: 'password-input', className: 'am-u-sm-4 am-form-label' },
-        'password'
-      ),
-      _react2['default'].createElement(
-        'div',
-        { className: 'am-u-sm-4  am-u-sm-centered' },
-        _react2['default'].createElement('input', { id: 'password-input', type: 'password', className: 'am-form-field', placeholder: '********' }),
-        _react2['default'].createElement('span', { id: 'password-check-icon', className: 'am-icon-warning' })
-      )
-    );
-  }
-});
+var _PasswordCheck2 = _interopRequireDefault(_PasswordCheck);
 
 var RegistButton = _react2['default'].createClass({
   displayName: 'RegistButton',
@@ -686,9 +898,27 @@ var Regist = _react2['default'].createClass({
     return _react2['default'].createElement(
       'div',
       null,
-      'online:',
-      _react2['default'].createElement(_OnlineUsers2['default'], null),
       _react2['default'].createElement(Form, null)
+    );
+  }
+});
+
+var Form = _react2['default'].createClass({
+  displayName: 'Form',
+
+  render: function render() {
+    return _react2['default'].createElement(
+      'form',
+      { id: 'Regist-form', className: 'am-form am-form-horizontal am-g' },
+      _react2['default'].createElement(
+        'fieldset',
+        null,
+        _react2['default'].createElement(_Legend2['default'], { name: 'Regist' }),
+        _react2['default'].createElement(_EmailDiv2['default'], null),
+        _react2['default'].createElement(_PasswordCheck2['default'], null),
+        _react2['default'].createElement(_CaptchaDiv2['default'], null),
+        _react2['default'].createElement(RegistButton, null)
+      )
     );
   }
 });
@@ -696,7 +926,7 @@ var Regist = _react2['default'].createClass({
 exports['default'] = Regist;
 module.exports = exports['default'];
 
-},{"./EmailDiv":2,"./Legend":4,"./OnlineUsers":7,"react":"react"}],9:[function(require,module,exports){
+},{"./CaptchaDiv":2,"./EmailDiv":3,"./Legend":5,"./PasswordCheck":9,"react":"react"}],11:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -717,7 +947,7 @@ _reactRouter2['default'].run(_routes2['default'], _reactRouter2['default'].Histo
   _react2['default'].render(_react2['default'].createElement(Handler, null), document.getElementById('app'));
 });
 
-},{"./routes":10,"react":"react","react-router":"react-router"}],10:[function(require,module,exports){
+},{"./routes":12,"react":"react","react-router":"react-router"}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -757,4 +987,4 @@ exports['default'] = _react2['default'].createElement(
 );
 module.exports = exports['default'];
 
-},{"./components/App":1,"./components/Index":3,"./components/Login":5,"./components/Regist":8,"react":"react","react-router":"react-router"}]},{},[9]);
+},{"./components/App":1,"./components/Index":4,"./components/Login":6,"./components/Regist":10,"react":"react","react-router":"react-router"}]},{},[11]);

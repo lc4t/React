@@ -1,4 +1,5 @@
 import React from 'react';
+import OnlineUsers from './OnlineUsers';
 import {Link} from 'react-router';
 
 var Navbar = React.createClass({
@@ -8,7 +9,9 @@ var Navbar = React.createClass({
         <header className="am-topbar">
           <h1 className="am-topbar-brand">
             <Link to='/'>Web Console</Link>
+            <OnlineUsers />
           </h1>
+
 
           <button className="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span className="am-sr-only">导航切换</span> <span className="am-icon-bars"></span></button>
 
