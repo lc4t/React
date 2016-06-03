@@ -37,7 +37,7 @@ var Regist = React.createClass({
 var Form = React.createClass ({
   render: function() {
     return (
-      <form id="Regist-form" className="am-form am-form-horizontal am-g" >
+      <form id="Regist-form" className="am-form am-form-horizontal am-g" action="/api/regist" method="post">
         <fieldset>
           <Legend name="Regist" />
           <EmailDiv />

@@ -347,7 +347,7 @@ var LoginForm = _react2['default'].createClass({
   render: function render() {
     return _react2['default'].createElement(
       'form',
-      { id: 'Regist-form', className: 'am-form am-form-horizontal am-g' },
+      { id: 'Regist-form', className: 'am-form am-form-horizontal am-g', action: '/api/login', method: 'post' },
       _react2['default'].createElement(
         'fieldset',
         null,
@@ -909,7 +909,7 @@ var Form = _react2['default'].createClass({
   render: function render() {
     return _react2['default'].createElement(
       'form',
-      { id: 'Regist-form', className: 'am-form am-form-horizontal am-g' },
+      { id: 'Regist-form', className: 'am-form am-form-horizontal am-g', action: '/api/regist', method: 'post' },
       _react2['default'].createElement(
         'fieldset',
         null,

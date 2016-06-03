@@ -35,7 +35,7 @@ var LoginButton = React.createClass({
 var LoginForm = React.createClass({
   render: function() {
     return (
-      <form id="Regist-form" className="am-form am-form-horizontal am-g" >
+      <form id="Regist-form" className="am-form am-form-horizontal am-g" action="/api/login" method="post">
         <fieldset>
           <Legend name='Login' />
           <EmailDiv />
