@@ -88,7 +88,7 @@ var PasswordInputFirst = React.createClass({
       <div id="password-first-div" className={StateCheckClassName(this.state.formatCheckState)}>
         <label htmlFor="password-first-input" className="am-u-sm-4 am-form-label">password</label>
         <div className="am-u-sm-4  am-u-sm-uncentered">
-          <input id="password-first-input" type="password" className="am-form-field"  placeholder="********" onFocus={this.onFocus} onChange={this.onChange} />
+          <input id="password-first-input" name={this.props.name} type="password" className="am-form-field"  placeholder="********" onFocus={this.onFocus} onChange={this.onChange} />
           <span id="password-check-icon" className={StateCheckInputIconClass(this.state.formatCheckState)}></span>
         </div>
         <div id="password-format-check" className="am-u-sm-4  am-u-sm-uncentered am-text-danger">
@@ -145,7 +145,7 @@ var PasswordInputAgain = React.createClass({
       <div id="password-again-div" className={StateCheckClassName(this.state.sameCheckState)}>
         <label htmlFor="password-again-input" className="am-u-sm-4 am-form-label">password</label>
         <div className="am-u-sm-4  am-u-sm-uncentered">
-          <input id="password-again-input" type="password" className="am-form-field"  placeholder="********" onFocus={this.onFocus} onChange={this.onChange} />
+          <input id="password-again-input" name={this.props.name} type="password" className="am-form-field"  placeholder="********" onFocus={this.onFocus} onChange={this.onChange} />
           <span id="password-check-icon" className={StateCheckInputIconClass(this.state.sameCheckState)}></span>
         </div>
         <div id="password-again-check" className="am-u-sm-4  am-u-sm-uncentered am-text-danger">
@@ -201,8 +201,8 @@ var PasswordCheck = React.createClass({
   render: function(){
     return (
       <div>
-        <PasswordInputFirst formatCheckState={this.state.formatCheckState} formatCheckString={this.state.formatCheckString} formatCallback={this.formatCallback} setPasswordFirst={this.setPasswordFirst} />
-        <PasswordInputAgain ref="passwordAgainCheck" sameCheckState={this.state.sameCheckState} sameCheckString={this.state.sameCheckString} sameCallback={this.sameCallback} passwordFirst={this.state.passwordFirst} setPasswordSecond={this.setPasswordSecond} />
+        <PasswordInputFirst name={this.props.name} formatCheckState={this.state.formatCheckState} formatCheckString={this.state.formatCheckString} formatCallback={this.formatCallback} setPasswordFirst={this.setPasswordFirst} />
+        <PasswordInputAgain name={this.props.nameCheck} ref="passwordAgainCheck" sameCheckState={this.state.sameCheckState} sameCheckString={this.state.sameCheckString} sameCallback={this.sameCallback} passwordFirst={this.state.passwordFirst} setPasswordSecond={this.setPasswordSecond} />
       </div>
     )
   }

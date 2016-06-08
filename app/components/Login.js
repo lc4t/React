@@ -10,7 +10,7 @@ var PasswordDiv = React.createClass({
       <div id="password-div" className="am-form-group">
         <label htmlFor="password-input" className="am-u-sm-4 am-form-label">password</label>
         <div className="am-u-sm-4  am-u-sm-centered">
-          <input id="password-input" type="password" className="am-form-field"  placeholder="********" />
+          <input id="password-input" name={this.props.name} type="password" className="am-form-field"  placeholder="********" />
         </div>
       </div>
     );
@@ -38,9 +38,9 @@ var LoginForm = React.createClass({
       <form id="Regist-form" className="am-form am-form-horizontal am-g" action="/api/login" method="post">
         <fieldset>
           <Legend name='Login' />
-          <EmailDiv />
-          <PasswordDiv />
-          <CaptchaDiv />
+          <EmailDiv name="email"/>
+          <PasswordDiv name="password" />
+          <CaptchaDiv name="captcha" />
           <LoginButton />
         </fieldset>
       </form>

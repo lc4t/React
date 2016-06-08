@@ -40,9 +40,9 @@ var Form = React.createClass ({
       <form id="Regist-form" className="am-form am-form-horizontal am-g" action="/api/regist" method="post">
         <fieldset>
           <Legend name="Regist" />
-          <EmailDiv />
-          <PasswordCheck />
-          <CaptchaDiv />
+          <EmailDiv name="email" />
+          <PasswordCheck name="password" nameCheck="password-check" />
+          <CaptchaDiv name="captcha"/>
           <RegistButton />
         </fieldset>
       </form>

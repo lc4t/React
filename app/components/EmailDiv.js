@@ -70,7 +70,7 @@ var EmailInput = React.createClass ({
   },
   render: function () {
     return (
-      <input id="email-input" ref="emailInput" type="email"  className="am-form-field"  placeholder="@" onChange={this.onChange} onFocus={this.onFocus}/>
+      <input id="email-input" name={this.props.name} type="email"  className="am-form-field"  placeholder="@" onChange={this.onChange} onFocus={this.onFocus}/>
     )
   }
 });
@@ -93,6 +93,7 @@ var EmailDiv = React.createClass({
         <label htmlFor="email-label" className="am-u-sm-4 am-form-label">email</label>
         <div className="am-u-sm-4 am-u-sm-centered">
           <EmailInput
+          name={this.props.name}
           initValied={this.state.valied}
           callbackParent={this.onChildChanged} />
           <span id="email-check-icon" className={StateCheckInputIconClass(this.state.valied)}></span>

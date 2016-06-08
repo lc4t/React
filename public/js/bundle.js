@@ -79,7 +79,7 @@ var CaptchaDiv = _react2["default"].createClass({
       _react2["default"].createElement(
         "div",
         { className: "am-u-sm-2 am-u-sm-uncentered" },
-        _react2["default"].createElement("input", { id: "captcha-input", type: "text", className: "am-form-field", placeholder: "captcha" }),
+        _react2["default"].createElement("input", { id: "captcha-input", name: this.props.name, type: "text", className: "am-form-field", placeholder: "captcha" }),
         _react2["default"].createElement("span", { id: "password-check-icon", className: "am-icon-warning" })
       ),
       _react2["default"].createElement(
@@ -160,7 +160,7 @@ var EmailInput = _react2['default'].createClass({
     this.props.callbackParent(check);
   },
   render: function render() {
-    return _react2['default'].createElement('input', { id: 'email-input', ref: 'emailInput', type: 'email', className: 'am-form-field', placeholder: '@', onChange: this.onChange, onFocus: this.onFocus });
+    return _react2['default'].createElement('input', { id: 'email-input', name: this.props.name, type: 'email', className: 'am-form-field', placeholder: '@', onChange: this.onChange, onFocus: this.onFocus });
   }
 });
 
@@ -191,6 +191,7 @@ var EmailDiv = _react2['default'].createClass({
         'div',
         { className: 'am-u-sm-4 am-u-sm-centered' },
         _react2['default'].createElement(EmailInput, {
+          name: this.props.name,
           initValied: this.state.valied,
           callbackParent: this.onChildChanged }),
         _react2['default'].createElement('span', { id: 'email-check-icon', className: StateCheckInputIconClass(this.state.valied) })
@@ -315,7 +316,7 @@ var PasswordDiv = _react2['default'].createClass({
       _react2['default'].createElement(
         'div',
         { className: 'am-u-sm-4  am-u-sm-centered' },
-        _react2['default'].createElement('input', { id: 'password-input', type: 'password', className: 'am-form-field', placeholder: '********' })
+        _react2['default'].createElement('input', { id: 'password-input', name: this.props.name, type: 'password', className: 'am-form-field', placeholder: '********' })
       )
     );
   }
@@ -352,9 +353,9 @@ var LoginForm = _react2['default'].createClass({
         'fieldset',
         null,
         _react2['default'].createElement(_Legend2['default'], { name: 'Login' }),
-        _react2['default'].createElement(_EmailDiv2['default'], null),
-        _react2['default'].createElement(PasswordDiv, null),
-        _react2['default'].createElement(_CaptchaDiv2['default'], null),
+        _react2['default'].createElement(_EmailDiv2['default'], { name: 'email' }),
+        _react2['default'].createElement(PasswordDiv, { name: 'password' }),
+        _react2['default'].createElement(_CaptchaDiv2['default'], { name: 'captcha' }),
         _react2['default'].createElement(LoginButton, null)
       )
     );
@@ -707,7 +708,7 @@ var PasswordInputFirst = _react2["default"].createClass({
       _react2["default"].createElement(
         "div",
         { className: "am-u-sm-4  am-u-sm-uncentered" },
-        _react2["default"].createElement("input", { id: "password-first-input", type: "password", className: "am-form-field", placeholder: "********", onFocus: this.onFocus, onChange: this.onChange }),
+        _react2["default"].createElement("input", { id: "password-first-input", name: this.props.name, type: "password", className: "am-form-field", placeholder: "********", onFocus: this.onFocus, onChange: this.onChange }),
         _react2["default"].createElement("span", { id: "password-check-icon", className: StateCheckInputIconClass(this.state.formatCheckState) })
       ),
       _react2["default"].createElement(
@@ -773,7 +774,7 @@ var PasswordInputAgain = _react2["default"].createClass({
       _react2["default"].createElement(
         "div",
         { className: "am-u-sm-4  am-u-sm-uncentered" },
-        _react2["default"].createElement("input", { id: "password-again-input", type: "password", className: "am-form-field", placeholder: "********", onFocus: this.onFocus, onChange: this.onChange }),
+        _react2["default"].createElement("input", { id: "password-again-input", name: this.props.name, type: "password", className: "am-form-field", placeholder: "********", onFocus: this.onFocus, onChange: this.onChange }),
         _react2["default"].createElement("span", { id: "password-check-icon", className: StateCheckInputIconClass(this.state.sameCheckState) })
       ),
       _react2["default"].createElement(
@@ -833,8 +834,8 @@ var PasswordCheck = _react2["default"].createClass({
     return _react2["default"].createElement(
       "div",
       null,
-      _react2["default"].createElement(PasswordInputFirst, { formatCheckState: this.state.formatCheckState, formatCheckString: this.state.formatCheckString, formatCallback: this.formatCallback, setPasswordFirst: this.setPasswordFirst }),
-      _react2["default"].createElement(PasswordInputAgain, { ref: "passwordAgainCheck", sameCheckState: this.state.sameCheckState, sameCheckString: this.state.sameCheckString, sameCallback: this.sameCallback, passwordFirst: this.state.passwordFirst, setPasswordSecond: this.setPasswordSecond })
+      _react2["default"].createElement(PasswordInputFirst, { name: this.props.name, formatCheckState: this.state.formatCheckState, formatCheckString: this.state.formatCheckString, formatCallback: this.formatCallback, setPasswordFirst: this.setPasswordFirst }),
+      _react2["default"].createElement(PasswordInputAgain, { name: this.props.nameCheck, ref: "passwordAgainCheck", sameCheckState: this.state.sameCheckState, sameCheckString: this.state.sameCheckString, sameCallback: this.sameCallback, passwordFirst: this.state.passwordFirst, setPasswordSecond: this.setPasswordSecond })
     );
   }
 });
@@ -914,9 +915,9 @@ var Form = _react2['default'].createClass({
         'fieldset',
         null,
         _react2['default'].createElement(_Legend2['default'], { name: 'Regist' }),
-        _react2['default'].createElement(_EmailDiv2['default'], null),
-        _react2['default'].createElement(_PasswordCheck2['default'], null),
-        _react2['default'].createElement(_CaptchaDiv2['default'], null),
+        _react2['default'].createElement(_EmailDiv2['default'], { name: 'email' }),
+        _react2['default'].createElement(_PasswordCheck2['default'], { name: 'password', nameCheck: 'password-check' }),
+        _react2['default'].createElement(_CaptchaDiv2['default'], { name: 'captcha' }),
         _react2['default'].createElement(RegistButton, null)
       )
     );
